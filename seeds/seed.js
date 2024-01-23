@@ -12,9 +12,13 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  // Adjusted seeding for projects
   for (const project of projectData) {
     await Project.create({
-      ...project,
+      name: project['item name'],
+      description: project.description,
+      date_created: new Date(), // You may want to adjust this based on your needs
+      needed_funding: project.pricing,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
