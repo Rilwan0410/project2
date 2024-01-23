@@ -1,7 +1,9 @@
 const router = require('express').Router();
 
-const apiRoutes = require('./api');
+// Update the require statement to 'homeRoutes' instead of 'homeController'
 const homeRoutes = require('./homeRoutes');
+
+const apiRoutes = require('./api');
 
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);

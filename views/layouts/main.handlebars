@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{pageTitle}} - Sneaker Marketplace</title>
+    <!-- Add additional head elements if needed -->
 </head>
 <body>
-    <h1>Main Page</h1>
+    <header>
+    <h1>Sneaker Marketplace</h1>
+    <div id="profileButton">
+        <a href="/profile">Profile</a>
+    </div>
+    <!-- Add additional header content if needed -->
+</header>
+    <main>
+        <section id="featuredSection">
+            <h2>Featured Products</h2>
+            {{{featuredProducts}}} <!-- Content for featured products -->
+        </section>
+
+        <section id="latestNews">
+            <h2>Latest News</h2>
+            {{{latestNews}}} <!-- Content for latest news -->
+        </section>
+
+        <section id="userFeedback">
+            <h2>User Feedback</h2>
+            {{{userFeedback}}} <!-- Content for user feedback -->
+        </section>
+
+        <!-- You can add more sections/components as needed -->
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Sneaker Marketplace</p>
+        <!-- Add additional footer content if needed -->
+    </footer>
 </body>
 </html>

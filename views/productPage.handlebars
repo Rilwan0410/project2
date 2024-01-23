@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneaker Marketplace</title>
+    <title>{{user.username}}'s Profile - Sneaker Marketplace</title>
 </head>
 <body>
     <header>
         <h1>Sneaker Marketplace</h1>
     </header>
     <main>
-        <section id="featuredSneakers">
-            <h2>Featured Sneakers</h2>
-            {{#each featuredSneakers}}
+        <section id="userProfile">
+            <h2>{{user.username}}'s Profile</h2>
+            <p>Email: {{user.email}}</p>
+            <h3>Listed Sneakers</h3>
+            {{#each user.listedSneakers}}
                 <div class="sneakerCard">
                     <img src="{{image}}" alt="{{name}}">
                     <p>{{name}}</p>
                     <p>${{price}}</p>
-                    <button>Buy Now</button>
+                    <button>Edit Listing</button>
                 </div>
             {{/each}}
         </section>
