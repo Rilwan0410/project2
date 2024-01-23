@@ -74,17 +74,8 @@ router.get('/login', (req, res) => {
 
 router.get('/homepage', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('homepage', {
-      ...user,
-      logged_in: true,
-    });
+    // You can add logic specific to the /homepage route here if needed
+    res.render('homepage', {});
   } catch (err) {
     res.status(500).json(err);
   }
