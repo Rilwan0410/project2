@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sneaker Marketplace</title>
+    <title>Sign Up - Sneaker Marketplace</title>
 </head>
 <body>
     <header>
         <h1>Sneaker Marketplace</h1>
     </header>
     <main>
-        <section id="loginForm">
-            <h2>Login</h2>
-            <form action="/login" method="post">
+        <section id="signupForm">
+            <h2>Sign Up</h2>
+            <form id="signupForm" action="/signup" method="post">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-                <button type="submit">Login</button>
+                <button type="submit">Sign Up</button>
             </form>
-            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            <p>Already have an account? <a href="/login">Login</a></p>
         </section>
     </main>
     <footer>
