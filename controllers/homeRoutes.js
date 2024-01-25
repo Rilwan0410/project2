@@ -23,28 +23,39 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get('/profile', withAuth, async (req, res) => {
+
+router.post('/login', (req, res) => {
+  // console.log(res)
+  res.json(req.body);
+});
+
+router.get('/profile', async (req, res) => {
+  console.log('profile page');
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Project }],
     });
 
-    const user = userData.get({ plain: true });
+    // const user = userData.get({ plain: true });
 
     res.render('profile', {
-      ...user,
+      // ...user,
       logged_in: true,
     });
   } catch (err) {
+    console.log('ran into an error');
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
+router.get('/signup', (req,res) => {
+res.render('signup', {})
+})
+
 router.get('/login', (req, res) => {
-  
   if (req.session.logged_in) {
-    
     res.redirect('/profile');
     return;
   }
