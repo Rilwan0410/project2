@@ -39,7 +39,7 @@ router.get('/profile', async (req, res) => {
 
     // const user = userData.get({ plain: true });
 
-    res.render('productpage', { // Updated view name from 'listing' to 'productpage'
+    res.render('profile', { // Updated view name from 'listing' to 'productpage'
       // ...user,
       logged_in: true,
     });
