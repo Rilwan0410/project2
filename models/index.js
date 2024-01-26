@@ -1,13 +1,15 @@
+// models/index.js
 const User = require('./User');
-const Project = require('./Project');
+const Listing = require('./Listing'); 
 
-User.hasMany(Project, {
+User.hasMany(Listing, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'SET NULL',
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
+Listing.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL',
 });
 
-module.exports = { User, Project };
+module.exports = { User, Listing }; 

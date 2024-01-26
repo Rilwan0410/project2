@@ -15,18 +15,17 @@
             <h2>User Information</h2>
             <p><strong>Name:</strong> {{ name }}</p>
             <p><strong>Email:</strong> {{ email }}</p>
-            <!-- Add more user details as needed -->
-        </section>
         <section id="projects">
-            <h2>Projects</h2>
-            {{#each projects}}
-                <div class="project">
-                    <h3>{{ projectName }}</h3>
-                    <p>{{ projectDescription }}</p>
-                    <!-- Add more project details as needed -->
-                </div>
-            {{/each}}
-        </section>
+  <h2>Current listings</h2>
+  {{#each projects}}
+        <div class="project">
+            <h3>{{ this.name }}</h3>
+            <p>{{ this.description }}</p>
+            <p>Price: ${{ this.pricing }}</p>
+      
+    </div>
+  {{/each}}
+</section>
         <!-- Add the logout button -->
         <button id="logout"><a href="/">Logout</a></button>
     </main>
@@ -35,6 +34,6 @@
     </footer>
     
     <!-- Include the logout.js file -->
-    <script src=""></script>
+    <script src="/"></script>
 </body>
 </html>

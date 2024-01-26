@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Listing extends Model {}
 
-Project.init(
+Listing.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -23,14 +23,14 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
+    pricing: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      defaultValue: 0, // Updated default value to 0
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'user', // Replace with the actual name of the referenced model for users
         key: 'id',
       },
     },
@@ -40,8 +40,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'listing',
   }
 );
 
-module.exports = Project;
+module.exports = Listing;
