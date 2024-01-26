@@ -1,8 +1,8 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Listing } = require('../models');
 
 const userData = require('./userData.json');
-const projectData = require('./projectData.json');
+const listingData = require('./listingData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -12,13 +12,13 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // Adjusted seeding for projects
-  for (const project of projectData) {
-    await Project.create({
-      name: project['item name'],
-      description: project.description,
+  // Adjusted seeding for listing
+  for (const listingItem of listingData) {
+    await Listing.create({
+      name: listingItem['item name'],
+      description: listingItem.description,
       date_created: new Date(), // You may want to adjust this based on your needs
-      needed_funding: project.pricing,
+      pricing: listingItem.pricing,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }

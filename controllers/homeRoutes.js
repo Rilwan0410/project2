@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Listing, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const projectData = await Project.findAll({
+    const listingData = await Listing.findAll({
       include: [
         {
           model: User,
@@ -13,10 +13,10 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const listing = listingData.map((listing) => listing.get({ plain: true }));
 
     res.render('homepage', {
-      projects,
+      listing,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -34,12 +34,12 @@ router.get('/profile', async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Listing }],
     });
 
     // const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('productpage', { // Updated view name from 'listing' to 'productpage'
       // ...user,
       logged_in: true,
     });
@@ -50,9 +50,9 @@ router.get('/profile', async (req, res) => {
   }
 });
 
-router.get('/signup', (req,res) => {
-res.render('signup', {})
-})
+router.get('/signup', (req, res) => {
+  res.render('signup', {});
+});
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
@@ -62,6 +62,7 @@ router.get('/login', (req, res) => {
   console.log('Redirecting to /profile');
   res.render('login');
 });
+
 router.get('/homepage', async (req, res) => {
   try {
     // You can add logic specific to the /homepage route here if needed
