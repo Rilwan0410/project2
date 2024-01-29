@@ -6,26 +6,6 @@
     <title>{{user.username}}'s Profile - Holey Soley</title>
 </head>
 <body>
-    <header>
-        <h1>Holey Soley</h1>
-    </header>
-    <main>
-        <section id="userProfile">
-            <h2>{{user.username}}'s Profile</h2>
-            <p>Email: {{user.email}}</p>
-            <h3>Listed Sneakers</h3>
-            {{#each user.listedSneakers}}
-                <div class="sneakerCard">
-                    <img src="{{image}}" alt="{{name}}">
-                    <p>{{name}}</p>
-                    <p>${{price}}</p>
-                    <button>Edit Listing</button>
-                </div>
-            {{/each}}
-        </section>
-    </main>
-    <footer>
-
-    </footer>
+=
 </body>
 </html>
