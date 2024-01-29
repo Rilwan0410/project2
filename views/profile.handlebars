@@ -15,25 +15,21 @@
             <h2>User Information</h2>
             <p><strong>Name:</strong> {{ name }}</p>
             <p><strong>Email:</strong> {{ email }}</p>
+        </section> <!-- Close the #profileInfo section -->
+
         <section id="projects">
-  <h2>Current listings</h2>
-  {{#each projects}}
-        <div class="project">
-            <h3>{{ this.name }}</h3>
-            <p>{{ this.description }}</p>
-            <p>Price: ${{ this.pricing }}</p>
-      
-    </div>
-  {{/each}}
-</section>
+            <h2>Current listings</h2>
+            {{#each projects}}
+                <div class="project">
+                    <h3>{{ this.name }}</h3>
+                    <p>{{ this.description }}</p>
+                    <p>Price: ${{ this.pricing }}</p>
+                </div>
+            {{/each}}
+        </section> <!-- Close the #projects section -->
+
         <!-- Add the logout button -->
         <button id="logout"><a href="/">Logout</a></button>
     </main>
-    <footer>
-        <p>&copy;2024 Holy Soley</p>
-    </footer>
-    
-    <!-- Include the logout.js file -->
-    <script src="/"></script>
 </body>
 </html>
